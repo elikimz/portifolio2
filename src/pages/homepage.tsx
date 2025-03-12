@@ -1,13 +1,29 @@
 
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 
 const HomePage: React.FC = () => {
+  const [isArrowVisible, setIsArrowVisible] = useState(false);
+
   const handleAdminLogin = () => {
     window.location.href = '/login'; // Redirect to the login page
   };
+
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.key === 'a') {
+        setIsArrowVisible(true);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+    };
+  }, []);
 
   return (
     <div className="bg-gray-100 text-gray-900">
@@ -66,13 +82,15 @@ const HomePage: React.FC = () => {
       <Footer />
 
       {/* Secret Admin Login Arrow */}
-      <button
-        onClick={handleAdminLogin}
-        className="fixed bottom-4 right-4 p-3 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600"
-        title="Admin Login"
-      >
-        ➜
-      </button>
+      {isArrowVisible && (
+        <button
+          onClick={handleAdminLogin}
+          className="fixed bottom-4 right-4 p-3 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600"
+          title="Admin Login"
+        >
+          ➜
+        </button>
+      )}
     </div>
   );
 };
