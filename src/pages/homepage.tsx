@@ -134,7 +134,7 @@ const HomePage: React.FC = () => {
             Get a comprehensive overview of my skills, experience, and qualifications. Download my CV to learn more about my professional journey.
           </p>
           <div className="mt-8 text-center">
-            <a href="/path-to-your-cv.pdf" className="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600" download>
+            <a href="https://drive.google.com/file/d/1J2xtzb_shLyzwSEIKZBx3uTAoPgDbDgf/view?usp=drive_link" className="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600" download>
               Download CV
             </a>
           </div>
