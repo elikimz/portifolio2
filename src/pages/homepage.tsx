@@ -106,7 +106,7 @@ const HomePage: React.FC = () => {
           <h2 className="text-3xl font-bold mb-6 text-center">About Me</h2>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-lg mb-4">
-              Hi, I'm [Your Name], a full-stack software developer with a passion for building web applications using the latest technologies. I specialize in FastAPI, React, and PostgreSQL.
+              Hi, I'm Wairimu Elijah Kimani, a full-stack software developer with a passion for building web applications using the latest technologies. I specialize in FastAPI, React, and PostgreSQL.
             </p>
             <p className="text-lg">
               With a strong foundation in both front-end and back-end development, I strive to create efficient, scalable, and user-friendly applications.
