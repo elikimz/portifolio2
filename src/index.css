@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 /* Global styles for dark mode */
 [data-theme="dark"] {
     background-color: #1a202c;
