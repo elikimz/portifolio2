@@ -1,3 +1,6 @@
+
+
+
 import React from 'react';
 import { useGetBlogsQuery } from '../features/blogsAPI'; // Adjust the path as necessary
 import Navbar from '../components/navbar';
@@ -22,7 +25,11 @@ const Blog: React.FC = () => {
   const { data: blogs, error, isLoading } = useGetBlogsQuery([]);
 
   if (isLoading) {
-    return <div className="text-center text-gray-500">Loading blogs...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
+      </div>
+    );
   }
 
   if (error) {
