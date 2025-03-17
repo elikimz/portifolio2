@@ -1,6 +1,3 @@
-
-
-
 import React from 'react';
 import { useGetProjectsQuery } from '../features/projectsAPI';
 import Navbar from '../components/navbar';
