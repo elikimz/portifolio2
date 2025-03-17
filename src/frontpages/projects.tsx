@@ -1,6 +1,3 @@
-
-
-
 import React, { useEffect } from 'react';
 import { useGetProjectsQuery } from '../features/projectsAPI';
 import Navbar from '../components/navbar';
@@ -28,7 +25,7 @@ const ProjectsPage: React.FC = () => {
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css";
-    link.integrity = "sha384-FH6fWSEmM9TbR3i5tcTfTmOnKD96D3lj8DcvB1CA/nxntD39wMiMlNf/Jnp9IHRU";
+    link.integrity = "sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g";
     link.crossOrigin = "anonymous";
     document.head.appendChild(link);
   }, []);
