@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+
+
+
+import React from 'react';
 import { useGetProjectsQuery } from '../features/projectsAPI';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 
-// Define the types for project and tech
+// Define the types for Project and Tech
 interface Tech {
   name: string;
 }
@@ -21,17 +24,8 @@ interface Project {
 }
 
 const ProjectsPage: React.FC = () => {
-  useEffect(() => {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css";
-    link.integrity = "sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g";
-    link.crossOrigin = "anonymous";
-    document.head.appendChild(link);
-  }, []);
-
   const { data, error, isLoading } = useGetProjectsQuery(undefined, {
-    pollingInterval: 3000,
+    pollingInterval: 3000, // Refetch every 3 seconds
   });
 
   if (isLoading) return <div className="text-center text-gray-500">Loading...</div>;
@@ -40,6 +34,7 @@ const ProjectsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Navbar />
+
       <main className="container mx-auto py-8 flex-grow">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {data?.map((project: Project) => (
@@ -64,12 +59,8 @@ const ProjectsPage: React.FC = () => {
                   <p className="text-gray-500 text-sm">End Date: {new Date(project.end_date).toLocaleDateString()}</p>
                 </div>
                 <div className="flex space-x-2">
-                  <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-                    <i className="fab fa-github"></i> GitHub
-                  </a>
-                  <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-                    <i className="fas fa-external-link-alt"></i> Live
-                  </a>
+                  <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">GitHub</a>
+                  <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Live</a>
                 </div>
               </div>
             </div>
