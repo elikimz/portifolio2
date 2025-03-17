@@ -1,5 +1,6 @@
 
 
+
 // import React, { useState, useEffect } from 'react';
 // import Navbar from '../components/navbar';
 // import Footer from '../components/footer';
@@ -26,49 +27,48 @@
 //   }, []);
 
 //   return (
-//     <div className="bg-gray-100 text-gray-900">
+//     <div className="bg-gray-900 text-white">
 //       <Navbar />
 
-//       <main>
+//       <main className="flex flex-col items-center justify-center min-h-screen">
 //         {/* Hero Section */}
-//         <section className="h-screen flex items-center justify-center bg-cover bg-center relative" style={{ backgroundImage: 'url(https://i.postimg.cc/K84d5wsg/kim.jpg)' }}>
-//           <div className="absolute inset-0 bg-black opacity-50"></div> {/* Background overlay */}
-//           <div className="text-center relative z-10">
-//             <h1 className="text-5xl font-bold mb-4 text-white">Welcome to My Portfolio</h1>
-//             <p className="text-xl mb-6 text-white">Showcasing my work, skills, and passion for development</p>
-//           </div>
-//         </section>
-
-//         {/* Profile Section */}
-//         <section id="profile" className="py-16 px-6">
-//           <h2 className="text-3xl font-bold mb-6 text-center">About Me</h2>
-//           <div className="max-w-3xl mx-auto text-center">
-//             <p className="text-lg mb-4">
-//               Hi, I'm Wairimu Elijah Kimani, a full-stack software developer with a passion for building web applications using the latest technologies.
-//             </p>
-//             <p className="text-lg">
-//               With a strong foundation in both front-end and back-end development, I strive to create efficient, scalable, and user-friendly applications.
+//         <section className="text-center mt-20">
+//           <div className="flex flex-col items-center mb-12">
+//             <img
+//               src="https://i.postimg.cc/K84d5wsg/kim.jpg" // Replace with your logo path
+//               alt="Logo"
+//               className="w-48 h-48 md:w-64 md:h-64 rounded-full mb-8 animate-slide-in-left"
+//             />
+//             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-green-500 animate-slide-in-left">
+//               I'm a Fullstack Software Developer
+//             </h1>
+//             <p className="text-lg text-green-300 animate-slide-in-right">
+//               I'm a passionate developer with a keen interest in creating innovative solutions and contributing to the open-source community.
 //             </p>
 //           </div>
 //         </section>
 
-//         {/* Projects Section */}
-//         <section id="projects" className="py-16 bg-gray-200 px-6">
-//           <h2 className="text-3xl font-bold mb-6 text-center">View My Projects</h2>
-//           <p className="max-w-3xl mx-auto text-center text-lg">
-//             Explore some of the projects I've worked on. Each project is a testament to my skills and dedication to delivering high-quality solutions.
-//           </p>
-//           <div className="mt-8 text-center">
-//             <a href="/projects" className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-//               Explore Projects
-//             </a>
+//         {/* About Me Section */}
+//         <section id="about-me" className="py-16 px-6 bg-gray-800 w-full flex flex-col md:flex-row items-center justify-center">
+//           <div className="md:w-1/2 p-4 text-center md:text-left">
+//             <h2 className="text-3xl font-bold mb-4 text-green-500">About Me</h2>
+//             <p className="text-lg text-green-300">
+//               I'm Wairimu Elijah Kimani, a Full-Stack Developer passionate about crafting modern, scalable web apps with React, FastAPI, PostgreSQL, and more.
+//             </p>
+//           </div>
+//           <div className="md:w-1/2 p-4 flex justify-center">
+//             <img
+//               src="https://via.placeholder.com/300" // Replace with your image path
+//               alt="Profile"
+//               className="w-48 h-48 md:w-64 md:h-64 rounded-full"
+//             />
 //           </div>
 //         </section>
 
 //         {/* Download CV Section */}
-//         <section id="download-cv" className="py-16 px-6">
-//           <h2 className="text-3xl font-bold mb-6 text-center">Download My CV</h2>
-//           <p className="max-w-3xl mx-auto text-center text-lg">
+//         <section id="download-cv" className="py-16 px-6 bg-gray-800 w-full">
+//           <h2 className="text-3xl font-bold mb-6 text-center text-green-500">Download My CV</h2>
+//           <p className="max-w-3xl mx-auto text-center text-lg text-green-300">
 //             Get a comprehensive overview of my skills, experience, and qualifications. Download my CV to learn more about my professional journey.
 //           </p>
 //           <div className="mt-8 text-center">
@@ -91,6 +91,41 @@
 //           ➜
 //         </button>
 //       )}
+
+//       {/* Inline Styles for Animations */}
+//       <style>
+//         {`
+//           @keyframes slideInLeft {
+//             from {
+//               opacity: 0;
+//               transform: translateX(-100%);
+//             }
+//             to {
+//               opacity: 1;
+//               transform: translateX(0);
+//             }
+//           }
+
+//           @keyframes slideInRight {
+//             from {
+//               opacity: 0;
+//               transform: translateX(100%);
+//             }
+//             to {
+//               opacity: 1;
+//               transform: translateX(0);
+//             }
+//           }
+
+//           .animate-slide-in-left {
+//             animation: slideInLeft 0.8s ease-out forwards;
+//           }
+
+//           .animate-slide-in-right {
+//             animation: slideInRight 0.8s ease-out forwards;
+//           }
+//         `}
+//       </style>
 //     </div>
 //   );
 // };
@@ -124,55 +159,48 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="text-gray-900">
+    <div className="bg-gray-900 text-white">
       <Navbar />
 
-      <main>
+      <main className="flex flex-col items-center justify-center min-h-screen">
         {/* Hero Section */}
-        <section className="h-screen flex items-center justify-center bg-blue-100 relative">
-          <div className="flex flex-col md:flex-row items-center md:items-start">
+        <section className="text-center mt-20">
+          <div className="flex flex-col items-center mb-12">
             <img
-              src="https://i.postimg.cc/K84d5wsg/kim.jpg"
-              alt="Profile"
-              className="w-48 h-64 md:w-64 md:h-80 rounded-lg shadow-lg mr-0 md:mr-8 mb-4 md:mb-0"
+              src="https://i.postimg.cc/K84d5wsg/kim.jpg" // Replace with your logo path
+              alt="Logo"
+              className="w-48 h-48 md:w-64 md:h-64 rounded-full mb-8 animate-slide-in-left"
             />
-            <div className="text-center md:text-left">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-blue-900">Welcome to My Portfolio</h1>
-              <p className="text-xl md:text-2xl mb-6 text-blue-700">Showcasing my work, skills, and passion for development</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Profile Section */}
-        <section id="profile" className="py-16 px-6 bg-green-100">
-          <h2 className="text-3xl font-bold mb-6 text-center text-green-900">About Me</h2>
-          <div className="max-w-3xl mx-auto text-center md:text-left">
-            <p className="text-lg mb-4 text-green-800">
-              Hi, I'm Wairimu Elijah Kimani, a full-stack software developer with a passion for building web applications using the latest technologies.
-            </p>
-            <p className="text-lg text-green-800">
-              With a strong foundation in both front-end and back-end development, I strive to create efficient, scalable, and user-friendly applications.
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-green-500 animate-slide-in-left">
+              I'm a Fullstack Software Developer
+            </h1>
+            <p className="text-lg text-green-300 animate-slide-in-right">
+              I'm a passionate developer with a keen interest in creating innovative solutions and contributing to the open-source community.
             </p>
           </div>
         </section>
 
-        {/* Projects Section */}
-        <section id="projects" className="py-16 bg-yellow-100 px-6">
-          <h2 className="text-3xl font-bold mb-6 text-center text-yellow-900">View My Projects</h2>
-          <p className="max-w-3xl mx-auto text-center text-lg text-yellow-800">
-            Explore some of the projects I've worked on. Each project is a testament to my skills and dedication to delivering high-quality solutions.
-          </p>
-          <div className="mt-8 text-center">
-            <a href="/projects" className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-              Explore Projects
-            </a>
+        {/* About Me Section */}
+        <section id="about-me" className="py-16 px-6 bg-gray-700 w-full flex flex-col md:flex-row items-center justify-center">
+          <div className="md:w-1/2 p-4 text-center md:text-left">
+            <h2 className="text-3xl font-bold mb-4 text-green-500">About Me</h2>
+            <p className="text-lg text-green-300">
+              I'm Wairimu Elijah Kimani, a Full-Stack Developer passionate about crafting modern, scalable web apps with React, FastAPI, PostgreSQL, and more.
+            </p>
+          </div>
+          <div className="md:w-1/2 p-4 flex justify-center">
+            <img
+              src="https://via.placeholder.com/300" // Replace with your image path
+              alt="Profile"
+              className="w-48 h-48 md:w-64 md:h-64 rounded-full"
+            />
           </div>
         </section>
 
         {/* Download CV Section */}
-        <section id="download-cv" className="py-16 px-6 bg-red-100">
-          <h2 className="text-3xl font-bold mb-6 text-center text-red-900">Download My CV</h2>
-          <p className="max-w-3xl mx-auto text-center text-lg text-red-800">
+        <section id="download-cv" className="py-16 px-6 bg-gray-800 w-full">
+          <h2 className="text-3xl font-bold mb-6 text-center text-green-500">Download My CV</h2>
+          <p className="max-w-3xl mx-auto text-center text-lg text-green-300">
             Get a comprehensive overview of my skills, experience, and qualifications. Download my CV to learn more about my professional journey.
           </p>
           <div className="mt-8 text-center">
@@ -195,6 +223,41 @@ const HomePage: React.FC = () => {
           ➜
         </button>
       )}
+
+      {/* Inline Styles for Animations */}
+      <style>
+        {`
+          @keyframes slideInLeft {
+            from {
+              opacity: 0;
+              transform: translateX(-100%);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+
+          @keyframes slideInRight {
+            from {
+              opacity: 0;
+              transform: translateX(100%);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+
+          .animate-slide-in-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+          }
+
+          .animate-slide-in-right {
+            animation: slideInRight 0.8s ease-out forwards;
+          }
+        `}
+      </style>
     </div>
   );
 };
