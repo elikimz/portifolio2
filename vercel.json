@@ -1,19 +1,16 @@
 {
-  "headers": [
-    {
-      "source": "/:path*",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/javascript",
-          "condition": {
-            "pathname": "/:path*.js"
-          }
-        }
-      ]
-    }
-  ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "/assets/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
