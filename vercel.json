@@ -1,6 +1,16 @@
-{
+
+  
+
+  {
     "rewrites": [
-      { "source": "/(.*)", "destination": "/index.html" }
+      {
+        "source": "/(.*\\.(js|css|json|ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|otf|eot|mp4|webm|ogg|mp3|wav|txt|xml|webmanifest))",
+        "destination": "/$1"
+      },
+      {
+        "source": "/(.*)", 
+        "destination": "/index.html"
+      }
     ]
   }
   
