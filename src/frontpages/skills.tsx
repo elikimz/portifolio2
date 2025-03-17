@@ -1,7 +1,21 @@
+
+
 // import React from 'react';
 // import { useGetSkillsQuery } from '../features/skillsAPI'; // Adjust the path as necessary
 // import Navbar from '../components/navbar';
 // import Footer from '../components/footer';
+
+// // Define the Skill interface
+// interface Skill {
+//   id: number;
+//   name: string;
+//   icon_url?: string;
+//   category: string;
+//   proficiency_level: string;
+//   is_deleted: boolean;
+//   created_at: string;
+//   updated_at: string;
+// }
 
 // const Skill: React.FC = () => {
 //   const { data: skills, error, isLoading } = useGetSkillsQuery([]);
@@ -50,7 +64,7 @@
 //       <div className="flex-grow py-12 px-4 sm:px-6 lg:px-8">
 //         <h1 className="text-3xl font-bold text-center mb-8 text-gray-900">Skills</h1>
 //         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-//           {skills?.map((skill) => (
+//           {skills?.map((skill: Skill) => (
 //             <div
 //               key={skill.id}
 //               className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow"
@@ -96,7 +110,7 @@
 // export default Skill;
 
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useGetSkillsQuery } from '../features/skillsAPI'; // Adjust the path as necessary
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
@@ -114,6 +128,15 @@ interface Skill {
 }
 
 const Skill: React.FC = () => {
+  useEffect(() => {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css";
+    link.integrity = "sha384-FH6fWSEmM9TbR3i5tcTfTmOnKD96D3lj8DcvB1CA/nxntD39wMiMlNf/Jnp9IHRU";
+    link.crossOrigin = "anonymous";
+    document.head.appendChild(link);
+  }, []);
+
   const { data: skills, error, isLoading } = useGetSkillsQuery([]);
 
   if (isLoading) {
