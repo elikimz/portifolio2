@@ -1,16 +1,19 @@
-
-  
-
-  {
-    "rewrites": [
-      {
-        "source": "/(.*\\.(js|css|json|ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|otf|eot|mp4|webm|ogg|mp3|wav|txt|xml|webmanifest))",
-        "destination": "/$1"
-      },
-      {
-        "source": "/(.*)", 
-        "destination": "/index.html"
-      }
-    ]
-  }
-  
+{
+  "headers": [
+    {
+      "source": "/:path*",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript",
+          "condition": {
+            "pathname": "/:path*.js"
+          }
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
