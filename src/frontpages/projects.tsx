@@ -21,16 +21,19 @@ interface Project {
 }
 
 const ProjectsPage: React.FC = () => {
-
   const { data, error, isLoading } = useGetProjectsQuery(undefined, {
     pollingInterval: 3000, // Refetch every 3 seconds
   });
 
   // Debugging logs
   useEffect(() => {
-    console.log("Projects Data:", data);
-    console.log("Error:", error);
-    console.log("Loading:", isLoading);
+    if (data) {
+      console.log("Projects Data:", data);
+    }
+    if (error) {
+      console.error("Error loading projects:", error);
+    }
+    console.log("Loading state:", isLoading);
   }, [data, error, isLoading]);
 
   if (isLoading) {
