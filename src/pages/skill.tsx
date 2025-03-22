@@ -9,7 +9,8 @@ import {
   useDeleteSkillMutation,
 } from '../features/skillsAPI';
 import { v4 as uuidv4 } from 'uuid';
-
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
 
 interface Skill {
   id: string;
@@ -123,7 +124,7 @@ const Skills: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-900 text-white">
-      
+      <Navbar />
       <div className="p-6 flex-grow">
         <h1 className="text-3xl font-bold mb-6 text-purple-500">Skills Dashboard</h1>
 
@@ -266,7 +267,7 @@ const Skills: React.FC = () => {
           </ul>
         </div>
       </div>
-     
+      <Footer />
     </div>
   );
 };
