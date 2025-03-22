@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const UsersAPI = createApi({
   reducerPath: 'usersAPI',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://portfolioapi-5zh8.onrender.com/',
+    baseUrl: 'https://portifolio-dme8dnhdeqh3c2c6.southafricanorth-01.azurewebsites.net/',
     prepareHeaders: (headers) => {
       const token = localStorage.getItem('token');
       if (token) {
