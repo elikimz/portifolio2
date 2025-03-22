@@ -21,6 +21,7 @@ interface Project {
 }
 
 const ProjectsPage: React.FC = () => {
+
   const { data, error, isLoading } = useGetProjectsQuery(undefined, {
     pollingInterval: 3000, // Refetch every 3 seconds
   });
