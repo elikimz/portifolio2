@@ -1,6 +1,3 @@
-
-
-
 import React, { useEffect } from "react";
 import { useGetProjectsQuery } from "../features/projectsAPI";
 import Navbar from "../components/navbar";
@@ -24,15 +21,7 @@ interface Project {
 }
 
 const ProjectsPage: React.FC = () => {
-  // Dynamically load Font Awesome (Alternative: Install it via npm)
-  useEffect(() => {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"; // Updated version
-    document.head.appendChild(link);
-  }, []);
 
-  // Fetch projects from API
   const { data, error, isLoading } = useGetProjectsQuery(undefined, {
     pollingInterval: 3000, // Refetch every 3 seconds
   });
@@ -100,7 +89,7 @@ const ProjectsPage: React.FC = () => {
                     rel="noopener noreferrer"
                     className="text-blue-500 hover:underline"
                   >
-                    <i className="fab fa-github text-xl"></i>
+                    GitHub
                   </a>
                   <a
                     href={project.live_link}
@@ -108,7 +97,7 @@ const ProjectsPage: React.FC = () => {
                     rel="noopener noreferrer"
                     className="text-blue-500 hover:underline"
                   >
-                    <i className="fas fa-external-link-alt text-xl"></i>
+                    Live Demo
                   </a>
                 </div>
               </div>
