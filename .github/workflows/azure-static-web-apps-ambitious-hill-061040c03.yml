@@ -29,12 +29,8 @@ jobs:
           node-version: '20' # Adjust this if needed
 
       - name: Get Id Token
-        uses: actions/github-script@v6
         id: idtoken
-        with:
-          script: |
-            return await github.getIDToken();
-          result-encoding: string
+        uses: actions/authenticate-oidc@v1
 
       - name: Build And Deploy
         id: builddeploy
@@ -45,7 +41,7 @@ jobs:
           app_location: "/" # App source code path
           api_location: "" # API source code path - optional
           output_location: "build" # Built app content directory - optional
-          github_id_token: ${{ steps.idtoken.outputs.result }}
+          github_id_token: ${{ steps.idtoken.outputs.id_token }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
