@@ -1,7 +1,9 @@
+
+
+
 // import React, { useEffect, useState } from 'react';
 // import {
 //   useGetContactsQuery,
-
 //   useCreateContactMutation,
 //   useUpdateContactMutation,
 //   useDeleteContactMutation,
@@ -118,7 +120,7 @@
 
 //   const handleEditContact = (contact: Contact) => {
 //     console.log('Editing contact:', contact.name);
-//     setEditingContact({ ...contact }); // Ensure a new object is created to avoid mutating the original contact
+//     setEditingContact({ ...contact });
 //   };
 
 //   return (
@@ -296,7 +298,6 @@
 // export default Contacts;
 
 
-
 import React, { useEffect, useState } from 'react';
 import {
   useGetContactsQuery,
@@ -420,48 +421,48 @@ const Contacts: React.FC = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-900 text-white min-h-screen">
-      <h1 className="text-3xl font-bold mb-6 text-purple-500">Contacts Dashboard</h1>
+    <div className="p-6 bg-gray-100 text-gray-800 min-h-screen">
+      <h1 className="text-3xl font-bold mb-6 text-purple-600">Contacts Dashboard</h1>
 
-      {isLoading && <p>Loading contacts...</p>}
-      {fetchError && <p>Error loading contacts.</p>}
-      {message && <p className="mb-4 text-green-500">{message}</p>}
+      {isLoading && <p className="text-yellow-500">Loading contacts...</p>}
+      {fetchError && <p className="text-red-500">Error loading contacts.</p>}
+      {message && <p className="mb-4 text-green-600 bg-green-100 p-2 rounded">{message}</p>}
 
       {/* Create Contact Form */}
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">Create New Contact</h2>
+      <div className="mb-6 bg-white p-4 rounded shadow-md">
+        <h2 className="text-xl font-semibold mb-2 text-blue-600">Create New Contact</h2>
         <input
           type="text"
           placeholder="Enter Contact Name"
           value={newContact.name}
           onChange={(e) => setNewContact({ ...newContact, name: e.target.value })}
-          className="p-2 mb-2 w-full bg-gray-800 border border-gray-700 rounded"
+          className="p-2 mb-2 w-full bg-gray-200 border border-gray-300 rounded"
         />
         <input
           type="email"
           placeholder="Enter Contact Email"
           value={newContact.email}
           onChange={(e) => setNewContact({ ...newContact, email: e.target.value })}
-          className="p-2 mb-2 w-full bg-gray-800 border border-gray-700 rounded"
+          className="p-2 mb-2 w-full bg-gray-200 border border-gray-300 rounded"
         />
         <input
           type="text"
           placeholder="Enter Subject"
           value={newContact.subject}
           onChange={(e) => setNewContact({ ...newContact, subject: e.target.value })}
-          className="p-2 mb-2 w-full bg-gray-800 border border-gray-700 rounded"
+          className="p-2 mb-2 w-full bg-gray-200 border border-gray-300 rounded"
         />
         <textarea
           placeholder="Enter Message"
           value={newContact.message}
           onChange={(e) => setNewContact({ ...newContact, message: e.target.value })}
-          className="p-2 mb-2 w-full bg-gray-800 border border-gray-700 rounded"
+          className="p-2 mb-2 w-full bg-gray-200 border border-gray-300 rounded"
         />
         <textarea
           placeholder="Enter Response"
           value={newContact.response}
           onChange={(e) => setNewContact({ ...newContact, response: e.target.value })}
-          className="p-2 mb-2 w-full bg-gray-800 border border-gray-700 rounded"
+          className="p-2 mb-2 w-full bg-gray-200 border border-gray-300 rounded"
         />
         <label className="flex items-center space-x-2">
           <input
@@ -474,7 +475,7 @@ const Contacts: React.FC = () => {
         </label>
         <button
           onClick={handleCreateContact}
-          className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600"
+          className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700"
           disabled={isCreating}
         >
           {isCreating ? 'Creating...' : 'Create Contact'}
@@ -483,10 +484,10 @@ const Contacts: React.FC = () => {
 
       {/* Contacts List */}
       <div>
-        <h2 className="text-xl font-semibold mb-2">Contacts List</h2>
+        <h2 className="text-xl font-semibold mb-2 text-blue-600">Contacts List</h2>
         <ul>
           {contacts.map((contact: Contact) => (
-            <li key={contact.id} className="mb-4 p-4 bg-gray-800 rounded border border-gray-700 relative">
+            <li key={contact.id} className="mb-4 p-4 bg-white rounded shadow-md border border-gray-300 relative">
               {editingContact?.id === contact.id ? (
                 <div>
                   <input
@@ -497,7 +498,7 @@ const Contacts: React.FC = () => {
                       ...editingContact!,
                       name: e.target.value,
                     })}
-                    className="p-2 mb-2 w-full bg-gray-700 border border-gray-600 rounded"
+                    className="p-2 mb-2 w-full bg-gray-100 border border-gray-300 rounded"
                   />
                   <input
                     type="email"
@@ -507,7 +508,7 @@ const Contacts: React.FC = () => {
                       ...editingContact!,
                       email: e.target.value,
                     })}
-                    className="p-2 mb-2 w-full bg-gray-700 border border-gray-600 rounded"
+                    className="p-2 mb-2 w-full bg-gray-100 border border-gray-300 rounded"
                   />
                   <input
                     type="text"
@@ -517,7 +518,7 @@ const Contacts: React.FC = () => {
                       ...editingContact!,
                       subject: e.target.value,
                     })}
-                    className="p-2 mb-2 w-full bg-gray-700 border border-gray-600 rounded"
+                    className="p-2 mb-2 w-full bg-gray-100 border border-gray-300 rounded"
                   />
                   <textarea
                     placeholder="Enter Message"
@@ -526,7 +527,7 @@ const Contacts: React.FC = () => {
                       ...editingContact!,
                       message: e.target.value,
                     })}
-                    className="p-2 mb-2 w-full bg-gray-700 border border-gray-600 rounded"
+                    className="p-2 mb-2 w-full bg-gray-100 border border-gray-300 rounded"
                   />
                   <textarea
                     placeholder="Enter Response"
@@ -535,7 +536,7 @@ const Contacts: React.FC = () => {
                       ...editingContact!,
                       response: e.target.value,
                     })}
-                    className="p-2 mb-2 w-full bg-gray-700 border border-gray-600 rounded"
+                    className="p-2 mb-2 w-full bg-gray-100 border border-gray-300 rounded"
                   />
                   <label className="flex items-center space-x-2">
                     <input
@@ -551,7 +552,7 @@ const Contacts: React.FC = () => {
                   </label>
                   <button
                     onClick={handleUpdateContact}
-                    className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600"
+                    className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700"
                     disabled={isUpdating}
                   >
                     {isUpdating ? 'Updating...' : 'Save'}
@@ -569,13 +570,13 @@ const Contacts: React.FC = () => {
                   <p><strong>Updated At:</strong> {new Date(contact.updated_at).toLocaleString()}</p>
                   <button
                     onClick={() => handleEditContact(contact)}
-                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2"
+                    className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mr-2"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => handleDeleteContact(contact.id)}
-                    className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                    className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
                     disabled={isDeleting}
                   >
                     {isDeleting ? 'Deleting...' : 'Delete'}
