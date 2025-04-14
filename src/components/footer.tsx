@@ -29,7 +29,7 @@ const Footer = () => {
             <a href="https://github.com/elikimz" target="_blank" rel="noopener noreferrer" className="hover:text-white text-2xl">
               <FaGithub />
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-white text-2xl">
+            <a href="https://www.linkedin.com/in/elijah-kimani-359212360/" target="_blank" rel="noopener noreferrer" className="hover:text-white text-2xl">
               <FaLinkedin />
             </a>
             <a href="https://x.com/kimzz254" target="_blank" rel="noopener noreferrer" className="hover:text-white text-2xl">
@@ -41,7 +41,7 @@ const Footer = () => {
             <a href="https://www.youtube.com/@kimkimani254" target="_blank" rel="noopener noreferrer" className="hover:text-white text-2xl">
               <FaYoutube />
             </a>
-            <a href="https://facebook.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-white text-2xl">
+            <a href="https://www.facebook.com/profile.php?id=100080164901870" target="_blank" rel="noopener noreferrer" className="hover:text-white text-2xl">
               <FaFacebook />
             </a>
           </div>
