@@ -379,7 +379,6 @@
 
 
 
-
 import React, { useEffect, useState, useMemo } from "react";
 import {
   useGetProjectsQuery,
@@ -407,12 +406,57 @@ interface Project {
   user_id: string;
 }
 
+interface PaginationProps {
+  currentPage: number;
+  totalProjects: number;
+  pageSize: number;
+  onPageChange: (page: number) => void;
+}
+
+const Pagination: React.FC<PaginationProps> = ({
+  currentPage,
+  totalProjects,
+  pageSize,
+  onPageChange,
+}) => {
+  const totalPages = Math.ceil(totalProjects / pageSize);
+
+  return (
+    <div className="flex justify-center items-center space-x-4 mt-4">
+      <button
+        onClick={() => onPageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+        className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600 disabled:opacity-50"
+      >
+        Previous
+      </button>
+      <span className="text-white">
+        Page {currentPage} of {totalPages}
+      </span>
+      <button
+        onClick={() => onPageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+        className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600 disabled:opacity-50"
+      >
+        Next
+      </button>
+    </div>
+  );
+};
+
 const Projects: React.FC = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize] = useState(10);
+  // Remove or comment out the following line if `setTotalProjects` is not used
+  // const [totalProjects, setTotalProjects] = useState(0);
+  const [totalProjects] = useState(0);
+
   const {
     data: projects = [],
     error: fetchError,
     isLoading,
-  } = useGetProjectsQuery([]);
+    refetch,
+  } = useGetProjectsQuery({ page: currentPage, size: pageSize });
   const [createProject, { error: createError, isLoading: isCreating }] =
     useCreateProjectMutation();
   const [updateProject, { error: updateError, isLoading: isUpdating }] =
@@ -458,6 +502,10 @@ const Projects: React.FC = () => {
       setMessage("Failed to delete project.");
     }
   }, [fetchError, createError, updateError, deleteError]);
+
+  useEffect(() => {
+    refetch();
+  }, [currentPage, pageSize, refetch]);
 
   const handleCreateProject = async () => {
     try {
@@ -513,6 +561,10 @@ const Projects: React.FC = () => {
 
   const handleEditProject = (project: Project) => {
     setEditingProject({ ...project });
+  };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
   };
 
   const renderProject = useMemo(
@@ -854,6 +906,12 @@ const Projects: React.FC = () => {
       <div>
         <h2 className="text-xl font-semibold mb-2">Projects List</h2>
         <ul>{projects.map(renderProject)}</ul>
+        <Pagination
+          currentPage={currentPage}
+          totalProjects={totalProjects}
+          pageSize={pageSize}
+          onPageChange={handlePageChange}
+        />
       </div>
     </div>
   );
